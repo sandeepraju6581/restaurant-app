@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlavorFly Restaurant</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<header>
+
+<nav>
+
+<h2 class="logo">FlavorFly</h2>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="cart">
+
+<i class="fas fa-shopping-cart"></i>
+
+<span id="count">0</span>
+
+</div>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Fresh Food Delivered Fast</h1>
+
+<p>Experience delicious meals prepared with love.</p>
+
+<button>Order Now</button>
+
+</div>
+
+</section>
+
+<section id="menu">
+
+<h2>Popular Dishes</h2>
+
+<div class="menu-container">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="">
+<h3>Cheese Pizza</h3>
+<p>₹299</p>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600" alt="">
+<h3>Burger</h3>
+<p>₹199</p>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" alt="">
+<h3>Pasta</h3>
+<p>₹249</p>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600" alt="">
+<h3>Healthy Salad</h3>
+<p>₹179</p>
+<button onclick="addCart()">Add to Cart</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2>About FlavorFly</h2>
+
+<p>
+
+FlavorFly serves delicious food with fresh ingredients and
+fast delivery. We make every meal unforgettable.
+
+</p>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button>Send</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© 2026 FlavorFly Restaurant | All Rights Reserved</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
