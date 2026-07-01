@@ -28,7 +28,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 </ul>
 
-<div class="cart">
+<div class="cart" id="cartIcon">
 
 <i class="fas fa-shopping-cart"></i>
 
@@ -48,7 +48,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <p>Experience delicious meals prepared with love.</p>
 
-<button>Order Now</button>
+<button id="heroOrderBtn">Order Now</button>
 
 </div>
 
@@ -58,34 +58,81 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <h2>Popular Dishes</h2>
 
+<div class="search-container">
+  <i class="fas fa-search search-icon"></i>
+  <input type="text" id="menuSearch" placeholder="Search for your favorite dish...">
+</div>
+
 <div class="menu-container">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600" alt="">
+<img src="src/pizza.jpg" alt="Cheese Pizza">
 <h3>Cheese Pizza</h3>
 <p>₹299</p>
-<button onclick="addCart()">Add to Cart</button>
+<button onclick="addCart(this)">Add to Cart</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600" alt="">
+<img src="src/burger.jpg" alt="Burger">
 <h3>Burger</h3>
 <p>₹199</p>
-<button onclick="addCart()">Add to Cart</button>
+<button onclick="addCart(this)">Add to Cart</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=600" alt="">
+<img src="src/pasta.jpg" alt="Pasta">
 <h3>Pasta</h3>
 <p>₹249</p>
-<button onclick="addCart()">Add to Cart</button>
+<button onclick="addCart(this)">Add to Cart</button>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600" alt="">
+<img src="src/salad.jpg" alt="Healthy Salad">
 <h3>Healthy Salad</h3>
 <p>₹179</p>
-<button onclick="addCart()">Add to Cart</button>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/lava-cake.jpg" alt="Chocolate Lava Cake">
+<h3>Chocolate Lava Cake</h3>
+<p>₹149</p>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/french-fries.jpg" alt="French Fries">
+<h3>French Fries</h3>
+<p>₹99</p>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/garlic-bread.jpg" alt="Garlic Bread">
+<h3>Garlic Bread</h3>
+<p>₹129</p>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/club-sandwich.jpg" alt="Club Sandwich">
+<h3>Club Sandwich</h3>
+<p>₹159</p>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/strawberry-shake.jpg" alt="Strawberry Milkshake">
+<h3>Strawberry Milkshake</h3>
+<p>₹119</p>
+<button onclick="addCart(this)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="src/paneer-tikka.jpg" alt="Paneer Tikka">
+<h3>Paneer Tikka</h3>
+<p>₹189</p>
+<button onclick="addCart(this)">Add to Cart</button>
 </div>
 
 </div>
@@ -109,15 +156,15 @@ fast delivery. We make every meal unforgettable.
 
 <h2>Contact Us</h2>
 
-<form>
+<form id="contactForm" novalidate>
 
-<input type="text" placeholder="Your Name">
+<input type="text" id="contactName" placeholder="Your Name">
 
-<input type="email" placeholder="Email">
+<input type="email" id="contactEmail" placeholder="Email">
 
-<textarea placeholder="Message"></textarea>
+<textarea id="contactMessage" placeholder="Message"></textarea>
 
-<button>Send</button>
+<button type="submit">Send</button>
 
 </form>
 
@@ -128,6 +175,44 @@ fast delivery. We make every meal unforgettable.
 <p>© 2026 FlavorFly Restaurant | All Rights Reserved</p>
 
 </footer>
+
+<!-- Cart Drawer Backdrop Overlay -->
+<div class="cart-backdrop" id="cartBackdrop"></div>
+
+<!-- Sliding Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Cart</h3>
+    <button class="cart-drawer-close" id="closeCartBtn">&times;</button>
+  </div>
+  <div class="cart-drawer-content" id="cartItemsContainer">
+    <div class="cart-empty-message">Your cart is empty.</div>
+  </div>
+  <div class="cart-drawer-footer">
+    <div class="cart-summary-line">
+      <span>Delivery Fee</span>
+      <span id="deliveryFee">₹40</span>
+    </div>
+    <div class="cart-summary-line total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn" disabled>Checkout</button>
+  </div>
+</div>
+
+<!-- Order Confirmation Success Modal -->
+<div class="modal-overlay" id="checkoutModal">
+  <div class="modal-content">
+    <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
+    <h3>Order Placed Successfully!</h3>
+    <p>Thank you for ordering from FlavorFly. Your hot delicious meal will reach you shortly!</p>
+    <button class="modal-close-btn" id="closeModalBtn">Great!</button>
+  </div>
+</div>
+
+<!-- Toast Notifications Container -->
+<div class="toast-container" id="toastContainer"></div>
 
 <script src="script.js"></script>
 
